@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 const GifGrid = ({ category }) => {
-  const getGifs = (async () => {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    getGifs()
+  }, [])
+
+  const getGifs = async () => {
     const url = `https://api.giphy.com/v1/gifs/search?q=Rick and Morty&limit=10&api_key=vFZNjEwkQVq9TPbw5gxNjA5zeqxEZmbW`
     const response = await fetch(url)
-    const { data } = await response.json
-
+    const { data } = await response.json()
     const gifs = data.map(({ id, title, images }) => {
       return {
         id: id,
@@ -14,7 +19,7 @@ const GifGrid = ({ category }) => {
         url: images?.downsized_medium.url
       }
     })
-  })()
+  }
 
   return (
     <div>
