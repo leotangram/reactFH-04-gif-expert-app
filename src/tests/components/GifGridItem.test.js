@@ -4,7 +4,9 @@ import GifGridItem from '../../components/GifGridItem'
 
 describe('GifGridItem Component', () => {
   test('should show the component correctly', () => {
-    const wrapper = shallow(<GifGridItem />)
+    const title = 'Title'
+    const url = 'https://asdasd.asd.asd'
+    const wrapper = shallow(<GifGridItem title={title} url={url} />)
     expect(wrapper).toMatchSnapshot()
   })
 })
