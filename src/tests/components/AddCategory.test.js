@@ -3,9 +3,28 @@ import AddCategory from '../../components/AddCategory'
 import { shallow } from 'enzyme'
 
 describe('AddCategory', () => {
+  const setCategories = jest.fn()
+  let wrapper
+
+  beforeEach(() => {
+    jest.clearAllMocks()
+    wrapper = shallow(<AddCategory setCategories={setCategories} />)
+  })
+
   test('should show correctly', () => {
-    const setCategories = () => {}
-    const wrapper = shallow(<AddCategory setCategories={setCategories} />)
     expect(wrapper).toMatchSnapshot()
+  })
+
+  test('should change the text field', () => {
+    const input = wrapper.find('input')
+    const value = ''
+    input.simulate('change', { target: { value } })
+    console.log('Holi', input)
+    expect(input.props().value).toBe(value)
+  })
+
+  test('should not call the information with submit', () => {
+    wrapper.find('form').simulate('submit', { preventDefault() {} })
+    expect(setCategories).not.toHaveBeenCalled()
   })
 })
