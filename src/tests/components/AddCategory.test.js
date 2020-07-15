@@ -27,4 +27,12 @@ describe('AddCategory', () => {
     wrapper.find('form').simulate('submit', { preventDefault() {} })
     expect(setCategories).not.toHaveBeenCalled()
   })
+
+  test('should call setCategories and clean text field', () => {
+    const value = 'Hola mundo'
+    wrapper.find('input').simulate('change', { target: { value } })
+    wrapper.find('form').simulate('submit', { preventDefault() {} })
+    expect(setCategories).toHaveBeenCalled()
+    expect(wrapper.find('input').prop('value')).toBe('')
+  })
 })
