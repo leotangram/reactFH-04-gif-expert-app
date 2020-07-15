@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GifGrid Component should show correctly 1`] = `
+<Fragment>
+  <h3
+    className="animate__animated animate__bounceInLeft"
+  >
+    One Punch
+  </h3>
+  <div
+    className="card-grid"
+  />
+</Fragment>
+`;
+
+exports[`GifGrid Component should show items when images is loaded useFetchGif 1`] = `
+<Fragment>
+  <h3
+    className="animate__animated animate__bounceInLeft"
+  >
+    One Punch
+  </h3>
+  <div
+    className="card-grid"
+  >
+    <GifGridItem
+      id="ABC"
+      key="ABC"
+      title="Potato"
+      url="hhtps://local.com"
+    />
+  </div>
+</Fragment>
+`;
