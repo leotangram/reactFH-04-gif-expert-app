@@ -21,6 +21,11 @@ describe('GifGrid Component', () => {
         id: 'ABC',
         url: 'hhtps://local.com',
         title: 'Potato'
+      },
+      {
+        id: '123',
+        url: 'hhtps://local.com',
+        title: 'Potato'
       }
     ]
     useFetchGifs.mockReturnValue({
@@ -29,5 +34,7 @@ describe('GifGrid Component', () => {
     })
     const wrapper = shallow(<GifGrid category={category} />)
     expect(wrapper).toMatchSnapshot()
+    expect(wrapper.find('p').exists()).toBe(false)
+    expect(wrapper.find('GifGridItem').length).toBe(gifs.length)
   })
 })

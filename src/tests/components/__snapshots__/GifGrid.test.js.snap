@@ -29,6 +29,12 @@ exports[`GifGrid Component should show items when images is loaded useFetchGif 1
       title="Potato"
       url="hhtps://local.com"
     />
+    <GifGridItem
+      id="123"
+      key="123"
+      title="Potato"
+      url="hhtps://local.com"
+    />
   </div>
 </Fragment>
 `;
